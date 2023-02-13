@@ -5,7 +5,7 @@
     </div>
   </div>
 </template>
-
+ 
 
 <script>
 import { mapGetters } from "vuex";
@@ -29,6 +29,8 @@ export default {
       //ose
       // const respone = (await axios.get("http://localhost:3000/food/list")).data;
       this.$store.dispatch("fetchFoodList", list);
+      
+
     },
   },
   computed: {

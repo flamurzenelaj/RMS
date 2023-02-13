@@ -1,6 +1,6 @@
 import admin from "firebase-admin";
 
-import serviceAccount from "../../credintials/rms-vuejs-14f1c-firebase-adminsdk-iifrg-7bfa3a52dc.json" assert { type: "json" };;
+import serviceAccount from "../../credintials/rms-vuejs-4969a-firebase-adminsdk-ba4ue-c13cf8df05.json"assert { type: "json" };
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

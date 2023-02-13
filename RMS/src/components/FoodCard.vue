@@ -9,7 +9,7 @@
       </div>
     </div>
     <img
-      :src="require(`../../../express/api/public/foodImages/${food.file}`)"
+      :src="require(`../../../express/api/public/foodImages/1649508467781hamburger.jpg`)"
       alt="Path error or missing image"
       class="card-img-top"
     />

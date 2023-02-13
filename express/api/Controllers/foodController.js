@@ -1,6 +1,7 @@
 // import updatefoodValidator from '../validators/updatefoodValidators';
 import foodModel from '../models/foodModel.js';
 import fs from 'fs'
+const currentPath = process.cwd();
 const filesDir = `${process.cwd()}/public/foodImages/`;
 
 const foodController = {
@@ -17,12 +18,14 @@ const foodController = {
     },
     create: async (req, res) => {
         try {
+            console.log(req);
             const foodData = new Object({
                 name: req.body.name,
                 price: req.body.price,
                 description: req.body.description,
                 file: req.file.filename
             })
+            console.log(foodData);
             const newfood = new foodModel(foodData);
             await newfood.save();
             return res.json(newfood);
@@ -36,7 +39,7 @@ const foodController = {
         const multer = require('multer');
         const storage = multer.diskStorage({
             destination: function (req, file, cb) {
-                cb(null, `${__dirname}/../public/foodImages/`);
+                cb(null, `${currentPath}/../public/foodImages/`);
             },
             filename: function (req, file, cb) {
                 cb(null, Date.now() + file.originalname);
