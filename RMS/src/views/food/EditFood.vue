@@ -61,7 +61,6 @@ export default {
       currentFood: "",
       routeID: "",
       error: "",
-      file: "",
     };
   },
   methods: {
@@ -76,7 +75,7 @@ export default {
         formData.append("name", this.currentFood.name);
         formData.append("price", this.currentFood.price);
         formData.append("description", this.currentFood.description);
-        //if it has new choosen file
+        
         if (this.currentFood.file) {
           formData.append("file", this.currentFood.file);
         }
@@ -84,7 +83,7 @@ export default {
         const result = await apiRequest.updateFood(formData);
 
         if (!result.message) {
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "Foods" });
         } else {
           this.error = result.message;
           setTimeout(() => {

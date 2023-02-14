@@ -1,4 +1,3 @@
-// import updatefoodValidator from '../validators/updatefoodValidators';
 import foodModel from '../models/foodModel.js';
 import fs from 'fs'
 const currentPath = process.cwd();
@@ -18,14 +17,13 @@ const foodController = {
     },
     create: async (req, res) => {
         try {
-            console.log(req);
             const foodData = new Object({
                 name: req.body.name,
                 price: req.body.price,
                 description: req.body.description,
                 file: req.file.filename
             })
-            console.log(foodData);
+
             const newfood = new foodModel(foodData);
             await newfood.save();
             return res.json(newfood);
@@ -54,12 +52,12 @@ const foodController = {
         });
         const food = await foodModel.deleteOne({ _id: id });
         if (food.deletedCount != 0) {
-            fs.unlinkSync(filesDir + deletedFood.file);
+            console.log(filesDir)
+            fs.unlinkSync(`${currentPath}/api/public/foodImages/` + deletedFood.file);
             return res.json({ message: 'Deleted Succefully' });
         }
         else
             return res.status(400).json({ message: 'Nothing Deleted' });
-
     },
     put: async (req, res) => {
         try {
@@ -86,7 +84,7 @@ const foodController = {
 
             if (updatedFood.modifiedCount != 0) {
                 if (currFood.file) {
-                    fs.unlinkSync(filesDir + currFood.file);
+                    fs.unlinkSync(`${currentPath}/api/public/foodImages/` + currFood.file);
                 }
             }
             return res.json(updatedFood);

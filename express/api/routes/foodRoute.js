@@ -14,14 +14,13 @@ foodRoute.get('/:id', foodController.get);
 import multer from 'multer';
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, `${currentPath}/../public/foodImages/`);
+        cb(null, `${currentPath}/../express/api/public/foodImages/`);
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + file.originalname);
     }
 });
 const upload = multer({ storage: storage });
-console.log(upload)
 foodRoute.post('/create', upload.single('file'), foodController.create);
 // foodRoute.post('/create', upload.single('file'),(req,res)=>{
 //     res.json({file:req.file});

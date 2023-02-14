@@ -9,7 +9,7 @@
       </div>
     </div>
     <img
-      :src="require(`../../../express/api/public/foodImages/1649508467781hamburger.jpg`)"
+      :src="require(`../../../express/api/public/foodImages/${food.file}`)"
       alt="Path error or missing image"
       class="card-img-top"
     />
@@ -32,6 +32,8 @@ import Edit from "../assets/Icons/edit-regular.svg";
 import Delete from "../assets/Icons/trash-regular.svg";
 import apiRequest from "../util/apiRequest";
 
+
+
 export default {
   props: {
     food: Object,
@@ -53,7 +55,7 @@ export default {
   methods: {
     async deletePost() {
       await apiRequest.deleteFood(this.food._id);
-      this.$router.push({ name: "Home" });
+      window.location.reload();
     },
     editFood() {
       this.$router.push({

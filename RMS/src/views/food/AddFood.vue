@@ -26,7 +26,7 @@
                 placeholder="Enter your description here"
                 type="text"
                 v-model="form.description"
-              />
+              ></textarea>
             </div>
             <label>
               Photo:
@@ -75,6 +75,8 @@ export default {
         formData.append("price", this.form.price);
         formData.append("description", this.form.description);
         formData.append("file", this.form.file);
+        console.log(formData);
+
         const result = await apiRequest.createFood(formData);
 
         if (result.message) {
@@ -83,7 +85,7 @@ export default {
             this.error = "";
           }, 7000);
         } else {
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "Foods" });
         }
       } else {
         this.error = "Please fill out all the fields!";

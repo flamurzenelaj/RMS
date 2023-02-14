@@ -7,6 +7,8 @@ const createFood = async (food) => {
     const { data } = await axiosInstance.post('food/create', food, {
         authorization: tokenId
     })
+    
     return data
 }
 export default createFood;
+
