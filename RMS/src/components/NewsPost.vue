@@ -127,6 +127,7 @@ export default {
   }
 
   .news-photo {
+    margin: 5rem;
     order: 1;
     flex: 3;
     border-radius: 20%;
