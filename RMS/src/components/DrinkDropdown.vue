@@ -8,13 +8,13 @@
         <div class="sub-menu" v-if="isOpen">
           <div class="options">
             <div v-if="admin" class="option">
-              <router-link class="option" :to="{ name: 'AddFood' }">
-                <p>AddFood</p>
+              <router-link class="option" :to="{ name: 'AddDrink' }">
+                <p>AddDrink</p>
               </router-link>
             </div>
             <div class="option">
-              <router-link class="option" :to="{ name: 'Foods' }">
-                <p>Foods</p>
+              <router-link class="option" :to="{ name: 'Drinks' }">
+                <p>Drinks</p>
               </router-link>
             </div>
           </div>

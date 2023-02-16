@@ -23,6 +23,14 @@
             >
           </div>
         </ul>
+        <ul v-show="!mobile">
+          <DrinkDropdown v-if="admin" class="link dropdown" title="Drinks" />
+          <div v-else>
+            <router-link class="link" :to="{ name: 'Drinks' }"
+              >Drinks</router-link
+            >
+          </div>
+        </ul>
         <ul v-if="!user">
           <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
             >Login/Register</router-link
@@ -105,6 +113,7 @@ import FoodDropdown from "./FoodDropdown.vue";
 
 import firebase from "firebase/compat/app";
 import "firebase/auth";
+import DrinkDropdown from "./DrinkDropdown.vue";
 
 export default {
   name: "navigation",
@@ -114,7 +123,8 @@ export default {
     adminIcon,
     signOutIcon,
     FoodDropdown,
-  },
+    DrinkDropdown
+},
   data() {
     return {
       profileMenu: null,
