@@ -1,7 +1,7 @@
  <template>
   <div class="news-card-wrap">
     <div class="news-cards container">
-      <FoodCard v-for="entry in list" :key="entry._id" :food="entry" />
+      <DrinkCard v-for="entry in list" :key="entry._id" :drink="entry" />
     </div>
   </div>
 </template>
@@ -11,24 +11,24 @@
 import { mapGetters } from "vuex";
 import apiRequest from "../../util/apiRequest";
 // import axios from "axios";
-import FoodCard from "@/components/FoodCard.vue";
+import DrinkCard from "@/components/DrinkCard.vue";
 
 export default {
   components: {
-    FoodCard,
+    DrinkCard,
   },
   created() {
-    this.fetchFoods();
+    this.fetchDrinks();
   },
   data() {
     return {};
   },
   methods: {
-    async fetchFoods() {
-      const list = await apiRequest.getFoodList();
+    async fetchDrinks() {
+      const list = await apiRequest.getDrinkList();
       //ose
-      // const respone = (await axios.get("http://localhost:3000/food/list")).data;
-      this.$store.dispatch("fetchFoodList", list);
+      // const respone = (await axios.get("http://localhost:3000/drink/list")).data;
+      this.$store.dispatch("fetchDrinkList", list);
       
 
     },
@@ -36,7 +36,7 @@ export default {
   computed: {
     ...mapGetters({
       user: "user",
-      list: "foodList",
+      list: "drinkList",
     }),
 
     profileAdmin() {
