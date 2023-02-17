@@ -29,6 +29,10 @@ export default new Vuex.Store({
     newsPhotoNameFood: "",
     newsPhotoFileURLFood: null,
 
+    drinks: [],
+    newsPhotoNameDrink: "",
+    newsPhotoFileURLDrink: null,
+
   },
   getters: {
     newsPostsFeed(state) {
@@ -40,6 +44,10 @@ export default new Vuex.Store({
 
     foodList(state) {      
       return state.foods;
+    },
+    
+    drinkList(state) {      
+      return state.drinks;
     }
   },
   mutations: {
@@ -108,6 +116,16 @@ export default new Vuex.Store({
       state.newsPhotoFileURLFood = payload;
     },
 
+    SET_DRINK(state,drinks) {
+      state.drinks = drinks;
+    },
+    fileNameChangeDrink(state, payload) {
+      state.newsPhotoNameDrink = payload;
+    },
+    createFileURLDrink(state, payload) {
+      state.newsPhotoFileURLDrink = payload;
+    },
+
   },
   actions: {
     async getCurrentUser({ commit }, user) {
@@ -158,7 +176,12 @@ export default new Vuex.Store({
 
     fetchFoodList({ commit }, foods) {
       commit("SET_FOOD", foods);
+    },
+
+    fetchDrinkList({ commit }, drinks) {
+      commit("SET_DRINK", drinks);
     }
+
   },
   modules: {},
 });

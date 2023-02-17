@@ -15,7 +15,9 @@ import Message from "../views/Message.vue";
 import AddFood from "../views/food/AddFood.vue";
 import Foods from "../views/food/Foods.vue";
 import EditFood from "../views/food/EditFood.vue";
-
+import AddDrink from "../views/drink/AddDrink.vue";
+import Drinks from "../views/drink/Drinks.vue";
+import EditDrink from "../views/drink/EditDrink.vue";
 
 
 
@@ -159,6 +161,34 @@ const routes = [
     component: EditFood,
     meta: {
       title: "Edit Food ",
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/add-drink",
+    name: "AddDrink",
+    component: AddDrink,
+    meta: {
+      title: "Add Drink",
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/drinks",
+    name: "Drinks",
+    component: Drinks,
+    meta: {
+      title: "Drinks",
+    },
+  },
+  {
+    path: "/edit-drink/:drinkid",
+    name: "EditDrink",
+    component: EditDrink,
+    meta: {
+      title: "Edit Drink ",
       requiresAuth: true,
       requiresAdmin: true,
     },

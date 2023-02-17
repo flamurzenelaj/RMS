@@ -98,6 +98,12 @@
             >Foods</router-link
           >
         </div>
+        <DrinkDropdown v-if="admin" class="link dropdown" title="Drinks" />
+        <div v-else>
+          <router-link class="link" :to="{ name: 'Drinks' }"
+            >Drinks</router-link
+          >
+        </div>
       </ul>
     </transition>
   </header>
