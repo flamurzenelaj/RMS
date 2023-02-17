@@ -52,12 +52,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .news-card-wrap {
   h3 {
     font-weight: 300;
     font-size: 28px;
     margin-bottom: 32px;
   }
+
+  .container{
+    width: 95%;
+  margin: 0 auto;
+  }
+
 }
 
 .updates {

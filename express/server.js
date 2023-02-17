@@ -5,6 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import adminRoute from "./api/routes/adminRoute.js";
 import foodRoute from "./api/routes/foodRoute.js";
+import drinkRoute from "./api/routes/drinkRoute.js";
 import mongoose from 'mongoose'
 
 mongoose.connect('mongodb://127.0.0.1:27017/RMS').then(() => {
@@ -28,6 +29,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/RMS').then(() => {
     app.use("/adminRoute", adminRoute);
 
     app.use("/food", foodRoute);
+    
+    app.use("/drink", drinkRoute);
+
 
 
     app.listen(port, () => {

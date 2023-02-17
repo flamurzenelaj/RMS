@@ -189,6 +189,8 @@ export default {
 .create-post {
   position: relative;
   height: 100%;
+  width: 95%;
+  margin: 0 auto;
 
   button {
     margin-top: 0;

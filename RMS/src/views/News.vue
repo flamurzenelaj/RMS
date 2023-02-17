@@ -42,6 +42,9 @@ export default {
 .news-cards {
   position: relative;
 
+    width: 95%;
+  margin: 0 auto;
+
   .toggle-edit {
     display: flex;
     align-items: center;
