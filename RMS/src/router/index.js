@@ -18,6 +18,7 @@ import EditFood from "../views/food/EditFood.vue";
 import AddDrink from "../views/drink/AddDrink.vue";
 import Drinks from "../views/drink/Drinks.vue";
 import EditDrink from "../views/drink/EditDrink.vue";
+import About from "../components/About.vue"
 
 
 
@@ -41,6 +42,14 @@ const routes = [
     component: News,
     meta: {
       title: "News",
+    },
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: About,
+    meta: {
+      title: "About ",
     },
   },
   {
@@ -193,6 +202,7 @@ const routes = [
       requiresAdmin: true,
     },
   },
+  
 ];
 const router = new VueRouter({
   mode: "history",
