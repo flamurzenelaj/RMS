@@ -12,7 +12,7 @@
           <router-link v-if="admin" class="link" :to="{ name: 'AddNews' }"
             >Add News</router-link
           >
-          <router-link v-if="user" class="link" :to="{ name: 'Message' }"
+          <router-link v-if="user && !admin" class="link" :to="{ name: 'Message' }"
             >Message</router-link
           >
         </ul>
@@ -91,7 +91,7 @@
         <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
           >Login/Register</router-link
         >
-        <router-link v-if="user" class="link" :to="{ name: 'Message' }"
+        <router-link v-if="user && !admin" class="link" :to="{ name: 'Message' }"
           >Message</router-link
         >
         <FoodDropdown v-if="admin" class="link dropdown" title="Foods" />
@@ -148,7 +148,7 @@ export default {
   methods: {
     checkScreen() {
       this.windownWidth = window.innerWidth;
-      if (this.windownWidth <= 750) {
+      if (this.windownWidth <= 930) {
         this.mobile = true;
         return;
       }

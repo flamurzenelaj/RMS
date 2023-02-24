@@ -49,7 +49,7 @@ export default {
 .sub-menu {
   position: absolute;
   top: 50px;
-  right: 75px;
+  right: 100px;
   width: 150px;
   background-color: #fff;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
