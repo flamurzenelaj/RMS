@@ -11,7 +11,6 @@ import AddNews from "../views/AddNews.vue";
 import NewsPreview from "../views/NewsPreview.vue";
 import ViewNews from "../views/ViewNews.vue";
 import EditNews from "../views/EditNews.vue";
-import Message from "../views/Message.vue";
 import AddFood from "../views/food/AddFood.vue";
 import Foods from "../views/food/Foods.vue";
 import EditFood from "../views/food/EditFood.vue";
@@ -137,15 +136,7 @@ const routes = [
       requiresAdmin: true,
     },
   },
-  {
-    path: "/msg",
-    name: "Message",
-    component: Message,
-    meta: {
-      title: "Message",
-      requiresAuth: true,
-    },
-  },
+  
   {
     path: "/add-food",
     name: "AddFood",

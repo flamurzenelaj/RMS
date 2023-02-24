@@ -12,9 +12,7 @@
           <router-link v-if="admin" class="link" :to="{ name: 'AddNews' }"
             >Add News</router-link
           >
-          <router-link v-if="user && !admin" class="link" :to="{ name: 'Message' }"
-            >Message</router-link
-          >
+          
         </ul>
         <ul v-show="!mobile">
           <FoodDropdown v-if="admin" class="link dropdown" title="Foods" />
@@ -91,9 +89,7 @@
         <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
           >Login/Register</router-link
         >
-        <router-link v-if="user && !admin" class="link" :to="{ name: 'Message' }"
-          >Message</router-link
-        >
+        
         <FoodDropdown v-if="admin" class="link dropdown" title="Foods" />
         <div v-else>
           <router-link class="link" :to="{ name: 'Foods' }"
