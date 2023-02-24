@@ -17,6 +17,7 @@ import AddDrink from "../views/drink/AddDrink.vue";
 import Drinks from "../views/drink/Drinks.vue";
 import EditDrink from "../views/drink/EditDrink.vue";
 import About from "../components/About.vue"
+import Message from "../views/Message.vue";
 
 
 
@@ -182,6 +183,16 @@ const routes = [
       title: "Edit Drink ",
       requiresAuth: true,
       requiresAdmin: true,
+    },
+  },
+
+  {
+    path: "/msg",
+    name: "Message",
+    component: Message,
+    meta: {
+      title: "Message",
+      requiresAuth: true,
     },
   },
   
