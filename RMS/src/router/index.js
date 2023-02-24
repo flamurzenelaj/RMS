@@ -5,7 +5,6 @@ import News from "../views/News.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
-import Profile from "../views/Profile.vue";
 import Admin from "../views/Admin.vue";
 import AddNews from "../views/AddNews.vue";
 import NewsPreview from "../views/NewsPreview.vue";
@@ -78,15 +77,7 @@ const routes = [
       requiresAuth: false,
     },
   },
-  {
-    path: "/profile",
-    name: "Profile",
-    component: Profile,
-    meta: {
-      title: "Profile",
-      requiresAuth: true,
-    },
-  },
+  
   {
     path: "/admin",
     name: "Admin",
