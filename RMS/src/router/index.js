@@ -16,13 +16,12 @@ import EditFood from "../views/food/EditFood.vue";
 import AddDrink from "../views/drink/AddDrink.vue";
 import Drinks from "../views/drink/Drinks.vue";
 import EditDrink from "../views/drink/EditDrink.vue";
-import About from "../components/About.vue"
+import About from "../components/About.vue";
 import Message from "../views/Message.vue";
+import Profile from "../views/Profile.vue";
 
-
-
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 Vue.use(VueRouter);
 
@@ -69,6 +68,16 @@ const routes = [
       requiresAuth: false,
     },
   },
+
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+    meta: {
+      title: "Profile",
+      requiresAuth: true,
+    },
+  },
   {
     path: "/forgot-password",
     name: "ForgotPassword",
@@ -78,7 +87,7 @@ const routes = [
       requiresAuth: false,
     },
   },
-  
+
   {
     path: "/admin",
     name: "Admin",
@@ -128,7 +137,7 @@ const routes = [
       requiresAdmin: true,
     },
   },
-  
+
   {
     path: "/add-food",
     name: "AddFood",
@@ -195,7 +204,6 @@ const routes = [
       requiresAuth: true,
     },
   },
-  
 ];
 const router = new VueRouter({
   mode: "history",
@@ -243,15 +251,15 @@ export default router;
 //   (record) => record.meta.isAdmin || record.meta.isAuthenticated
 //   );
 //   const user = await getAuth().currentUser;
-  
+
 //   if (requiresAuth && !user) {
 //   const tokenResult = await getAuth().currentUser.getIdTokenResult();
 //   const isUserAdmin = tokenResult.claims.admin;
-  
+
 //   const isAdminRoute = to.matched.some(
 //   (record) => record.meta.isAdmin
 //   );
-  
+
 //   if (isUserAdmin && !isAdminRoute) {
 //   // redirect admin who tries to access user route
 //   next("/admin/list");
@@ -261,7 +269,7 @@ export default router;
 //   } else {
 //   next();
 //   };
-  
+
 //   next("/");
 //   } else {
 //   next();
