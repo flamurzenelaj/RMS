@@ -2,6 +2,39 @@
   <div class="home">
     <NewsPost v-if="!user" :post="welcomeScreen" />
     <NewsPost :post="post" v-for="(post, index) in newsPostsFeed" :key="index" />
+
+    <div class="home-category">
+            <router-link @click="scrollToTop()" to="/menu" class="box">
+                <img src="../assets/images/taco-img.png" alt="">
+                <h3>Taco</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/menu" class="box">
+                <img src="../assets/images/burrito-img.png" alt="">
+                <h3>Burrito</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/menu" class="box">
+                <img src="../assets/images/nachos-img.png" alt="">
+                <h3>Nachos</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/menu" class="box">
+                <img src="../assets/images/salad-img.png" alt="">
+                <h3>Sides</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/menu" class="box">
+                <img src="../assets/images/dessert-img.png" alt="">
+                <h3>Dessert</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/menu" class="box">
+                <img src="../assets/images/coca-img.png" alt="">
+                <h3>Drink</h3>
+            </router-link>
+        </div>
+
     <div class="news-card-wrap">
       <div class="container">
         <h3>View More Recent News</h3>
@@ -54,6 +87,10 @@ export default {
 <style lang="scss" scoped>
 
 
+.home{
+  padding: 2rem 9%;
+}
+
 .news-card-wrap {
   h3 {
     font-weight: 300;
@@ -66,6 +103,41 @@ export default {
   margin: 0 auto;
   }
 
+}
+
+/* home category */
+
+.home-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+}
+
+.home-category .box {
+    padding: 2rem;
+    text-align: center;
+    border-radius: .5rem;
+    background: #f7f7f7;
+    text-decoration: none;
+}
+
+.home-category .box:hover {
+    background: #27ae60;
+}
+
+.home-category .box:hover h3 {
+    color: #fff;
+}
+
+.home-category .box img {
+    height: 7rem;
+}
+
+.home-category .box h3 {
+    font-size: 1.8rem;
+    color: #130f40;
 }
 
 .updates {
