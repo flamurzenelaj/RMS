@@ -35,6 +35,41 @@
             </router-link>
         </div>
 
+<div class="home-about">
+            <div class="image">
+                <img src="../assets/images/about-img.jpg" alt="">
+            </div>
+            <div class="content">
+                <span>why choose us?</span>
+                <h3 class="title">what's make our food delicious!</h3>
+                <p>Food to customers is always guaranteed of the best quality. Our dishes are made by chef Quang (a 5
+                    Michelin stars chef), promising to bring explosive, delicate, impressive flavors. Our delivery
+                    service is very professional, customers can enjoy the same quality at the restaurant</p>
+                <router-link @click="scrollToTop()" to="/about" class="btn">read more</router-link>
+
+                <div class="icons-container">
+                    <div class="icons">
+                        <img src="../assets/images/serv-1.png" alt="">
+                        <h3>fast delivery</h3>
+                    </div>
+                    <div class="icons">
+                        <img src="../assets/images/serv-2.png" alt="">
+                        <h3>fresh food</h3>
+                    </div>
+                    <div class="icons">
+                        <img src="../assets/images/serv-3.png" alt="">
+                        <h3>best quality</h3>
+                    </div>
+                    <div class="icons">
+                        <img src="../assets/images/serv-4.png" alt="">
+                        <h3>24/7 support</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
     <div class="news-card-wrap">
       <div class="container">
         <h3>View More Recent News</h3>
@@ -140,6 +175,80 @@ export default {
     color: #130f40;
 }
 
+.home-about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    background: #f7f7f7;
+}
+
+.home-about .image {
+    flex: 1 1 40rem;
+}
+
+.home-about .image img {
+    width: 100%;
+}
+
+.home-about .content {
+
+    flex: 1 1 40rem;
+}
+
+.home-about .content span {
+    font-family: 'Satisfy', cursive;
+    font-size: 2.5rem;
+    color: #27ae60;
+}
+
+.home-about .content .title {
+    font-size: 2rem;
+    padding-top: .5rem;
+    color: #130f40;
+}
+
+.home-about .content p {
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.home-about .content .icons-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+}
+
+.home-about .content .icons-container .icons {
+    flex: 1 1 20rem;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.home-about .content .icons-container .icons h3 {
+    font-size: 1.7rem;
+    color: #130f40;
+}
+
+.btn{
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    background: #27ae60;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
 .updates {
   .container {
     padding: 100px 25px;
