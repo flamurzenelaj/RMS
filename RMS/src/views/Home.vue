@@ -242,6 +242,7 @@ export default {
         right: 0;
         bottom: 0;
         z-index: 2;
+        font-size: 0.8rem;
         span {
           font-size: 2.5rem;
           color: #fff;
@@ -294,7 +295,7 @@ export default {
 .home-banner .grid-banner .grid {
     border-radius: 1rem;
     overflow: hidden;
-    height: 45rem;
+    height: 35rem;
 }
 
 .home-banner .grid-banner .grid:hover img {
@@ -361,7 +362,7 @@ export default {
 .home-about .content span {
     font-family: 'Satisfy', cursive;
     font-size: 2.5rem;
-    color: #27ae60;
+    color: #23395d;
 }
 
 .home-about .content .title {
@@ -407,7 +408,7 @@ export default {
     font-size: 1rem;
     cursor: pointer;
     color: #fff;
-    background: #27ae60;
+    background: #303030;
     border-radius: 0.5rem;
     text-decoration: none;
 }
