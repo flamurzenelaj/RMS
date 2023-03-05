@@ -35,6 +35,38 @@
             </router-link>
         </div>
 
+<div class="home-banner">
+            <div class="grid-banner row">
+                <div class="grid col-md-4">
+                    <img src="../assets/images/dis-1.jpg" alt="">
+                    <div class="content">
+                        <span>special offer</span>
+                        <h3>upto 50% off</h3>
+                        <router-link @click="scrollToTop()" to="/menu" class="btn">order now</router-link>
+                    </div>
+                </div>
+
+                <div class="grid col-md-4">
+                    <img src="../assets/images/dis-2.png" alt="">
+                    <div class="content center">
+                        <span>special offer</span>
+                        <h3>upto 25% extra</h3>
+                        <router-link @click="scrollToTop()" to="/menu" class="btn">order now</router-link>
+                    </div>
+                </div>
+
+                <div class="grid col-md-4">
+                    <img src="../assets/images/dis-3.jpg" alt="">
+                    <div class="content">
+                        <span>limited offer</span>
+                        <h3>100% cashback</h3>
+                        <router-link @click="scrollToTop()" to="/menu" class="btn">order now</router-link>
+                    </div>
+                </div>
+            
+            </div>
+            </div>
+            
 <div class="home-about">
             <div class="image">
                 <img src="../assets/images/about-img.jpg" alt="">
@@ -173,6 +205,136 @@ export default {
 .home-category .box h3 {
     font-size: 1.8rem;
     color: #130f40;
+}
+
+/* home banner */
+
+.grid-banner row{
+  display: flex;
+}
+
+.home-banner .row-banner {
+    background: url(../assets/images/row-banner.png) no-repeat;
+    height: 45rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.row{
+  display:flex;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.home-banner {
+  .grid-banner {
+    .grid {
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+      }
+      .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        span {
+          font-size: 2.5rem;
+          color: #fff;
+        }
+        h3 {
+          font-size: 3rem;
+          color: #fff;
+          margin: 20px 0;
+        }
+        btn {
+          font-size: 18px;
+          color: #fff;
+          background-color: #000;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+.home-banner .row-banner .content {
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    transform: translateY(-50%);
+}
+
+.home-banner .row-banner .content span {
+    font-family: 'Satisfy', cursive;
+    font-size: 4rem;
+    color: #27ae60;
+    color: #130f40;
+}
+
+.home-banner .row-banner .content h3 {
+    font-size: 6rem;
+    color: red;
+    text-transform: uppercase;
+}
+
+.home-banner .row-banner .content p {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+
+.home-banner .grid-banner .grid {
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 45rem;
+}
+
+.home-banner .grid-banner .grid:hover img {
+    transform: scale(1.2);
+}
+
+.home-banner .grid-banner .grid img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-banner .grid-banner .grid .content {
+    position: absolute;
+    top: 2rem;
+    padding: 0 2rem;
+}
+
+.home-banner .grid-banner .grid .content.center {
+    text-align: center;
+    width: 100%;
+}
+
+.home-banner .grid-banner .grid .content.center span {
+    color: #666;
+}
+
+.home-banner .grid-banner .grid .content.center h3 {
+    color: #130f40;
+}
+
+.home-banner .grid-banner .grid .content span {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.home-banner .grid-banner .grid .content h3 {
+    font-size: 3rem;
+    color: #fff;
+    padding-top: .5rem;
 }
 
 .home-about {
