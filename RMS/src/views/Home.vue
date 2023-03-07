@@ -4,38 +4,38 @@
     <NewsPost :post="post" v-for="(post, index) in newsPostsFeed" :key="index" />
 
     <div class="home-category">
-            <router-link @click="scrollToTop()" to="/menu" class="box">
+            <router-link @click="scrollToTop()" to="/foods" class="box">
                 <img src="../assets/images/taco-img.png" alt="">
                 <h3>Taco</h3>
             </router-link>
 
-            <router-link @click="scrollToTop()" to="/menu" class="box">
+            <router-link @click="scrollToTop()" to="/foods" class="box">
                 <img src="../assets/images/burrito-img.png" alt="">
                 <h3>Burrito</h3>
             </router-link>
 
-            <router-link @click="scrollToTop()" to="/menu" class="box">
+            <router-link @click="scrollToTop()" to="/foods" class="box">
                 <img src="../assets/images/nachos-img.png" alt="">
                 <h3>Nachos</h3>
             </router-link>
 
-            <router-link @click="scrollToTop()" to="/menu" class="box">
+            <router-link @click="scrollToTop()" to="/foods" class="box">
                 <img src="../assets/images/salad-img.png" alt="">
                 <h3>Sides</h3>
             </router-link>
 
-            <router-link @click="scrollToTop()" to="/menu" class="box">
+            <router-link @click="scrollToTop()" to="/foods" class="box">
                 <img src="../assets/images/dessert-img.png" alt="">
                 <h3>Dessert</h3>
             </router-link>
 
-            <router-link @click="scrollToTop()" to="/menu" class="box">
+            <router-link @click="scrollToTop()" to="/drinks" class="box">
                 <img src="../assets/images/coca-img.png" alt="">
                 <h3>Drink</h3>
             </router-link>
         </div>
 
-<div class="home-banner">
+        <div class="home-banner">
             <div class="grid-banner row">
                 <div class="grid col-md-4">
                     <img src="../assets/images/dis-1.jpg" alt="">
@@ -63,9 +63,10 @@
                         <router-link @click="scrollToTop()" to="/menu" class="btn">order now</router-link>
                     </div>
                 </div>
-            
+
             </div>
-            </div>
+
+        </div>
             
 <div class="home-about">
             <div class="image">
@@ -153,12 +154,29 @@ export default {
 
 <style lang="scss" scoped>
 
-
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
 .home{
-  padding: 2rem 9%;
+  font-size: 90%;
+}
+
+.home-about,
+.home-banner,
+.home-category {
+    padding: 2rem 5% !important;
 }
 
 .news-card-wrap {
+  padding: 2rem 2% !important;
   h3 {
     font-weight: 300;
     font-size: 28px;
@@ -176,18 +194,18 @@ export default {
 
 .home-category {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-    gap: 1.5rem;
-    padding-bottom: 5rem;
-    padding-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
+    padding: 3rem;
 }
 
 .home-category .box {
-    padding: 2rem;
+    padding: 2rem ;
     text-align: center;
     border-radius: .5rem;
     background: #f7f7f7;
     text-decoration: none;
+    transition: all .3s ease-in-out ;
 }
 
 .home-category .box:hover {
@@ -203,7 +221,7 @@ export default {
 }
 
 .home-category .box h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: #130f40;
 }
 
@@ -225,9 +243,18 @@ export default {
   display:flex;
   padding: 2rem;
   gap: 2rem;
+
+  @media (max-width: 1200px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 }
 
+
 .home-banner {
+  padding: 2rem;
+  padding-top: 0;
+
   .grid-banner {
     .grid {
       position: relative;
@@ -242,18 +269,19 @@ export default {
         right: 0;
         bottom: 0;
         z-index: 2;
-        font-size: 0.8rem;
+        font-size: 0.4rem;
+        text-transform: capitalize;
         span {
-          font-size: 2.5rem;
+          font-size: 2.3rem !important;
           color: #fff;
         }
         h3 {
-          font-size: 3rem;
+          font-size: 2rem !important;
           color: #fff;
           margin: 20px 0;
         }
         btn {
-          font-size: 18px;
+          font-size: 15px;
           color: #fff;
           background-color: #000;
           padding: 10px 20px;
@@ -275,13 +303,13 @@ export default {
 
 .home-banner .row-banner .content span {
     font-family: 'Satisfy', cursive;
-    font-size: 4rem;
+    font-size: 2rem;
     color: #27ae60;
     color: #130f40;
 }
 
 .home-banner .row-banner .content h3 {
-    font-size: 6rem;
+    font-size: 4rem;
     color: red;
     text-transform: uppercase;
 }
@@ -306,6 +334,8 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: transform .5s ease-in-out;
+
 }
 
 .home-banner .grid-banner .grid .content {
@@ -344,6 +374,7 @@ export default {
     align-items: center;
     gap: 2rem;
     background: #f7f7f7;
+    padding: 3rem;
 }
 
 .home-about .image {
@@ -361,20 +392,23 @@ export default {
 
 .home-about .content span {
     font-family: 'Satisfy', cursive;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #23395d;
+    text-transform: capitalize;
 }
 
 .home-about .content .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-top: .5rem;
     color: #130f40;
+    text-transform: capitalize;
+
 }
 
 .home-about .content p {
     padding: 1rem 0;
     line-height: 2;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #666;
 }
 
@@ -388,7 +422,7 @@ export default {
 }
 
 .home-about .content .icons-container .icons {
-    flex: 1 1 20rem;
+    flex: 1 1 15rem;
     border-radius: .5rem;
     background: #fff;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05);
@@ -399,7 +433,7 @@ export default {
 }
 
 .home-about .content .icons-container .icons h3 {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     color: #130f40;
 }
 
@@ -411,6 +445,7 @@ export default {
     background: #303030;
     border-radius: 0.5rem;
     text-decoration: none;
+    text-transform: capitalize;
 }
 .updates {
   .container {
@@ -446,4 +481,6 @@ export default {
     }
   }
 }
+
+
 </style>

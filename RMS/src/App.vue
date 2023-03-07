@@ -67,6 +67,20 @@ export default {
   font-family: "Quicksand", sans-serif;
 }
 
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #08190f;
+    border-radius: 5rem;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -183,4 +197,6 @@ button,
     }
   }
 }
+
+
 </style>
