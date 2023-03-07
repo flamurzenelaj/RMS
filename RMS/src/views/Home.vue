@@ -119,37 +119,7 @@
   </div>
 </template>
 
-<script>
-import NewsPost from "../components/NewsPost";
-import NewsCard from "../components/NewsCard";
-import Arrow from "../assets/Icons/arrow-right-light.svg";
-export default {
-  name: "Home",
-  components: { NewsPost, NewsCard, Arrow },
-  data() {
-    return {
-      welcomeScreen: {
-        title: "Welcome!",
-        newsPost:
-          "Weekly news articles with all foods. Register today to never miss a post!",
-        welcomeScreen: true,
-        photo: "welcomeScreen",
-      },
-    };
-  },
-  computed: {
-    newsPostsFeed() {
-      return this.$store.getters.newsPostsFeed;
-    },
-    newsPostsCards() {
-      return this.$store.getters.newsPostsCards;
-    },
-    user() {
-      return this.$store.state.user;
-    },
-  },
-};
-</script>
+
 
 <style lang="scss" scoped>
 
