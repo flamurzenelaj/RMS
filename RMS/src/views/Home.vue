@@ -10,6 +10,16 @@
             </router-link>
 
             <router-link @click="scrollToTop()" to="/foods" class="box">
+                <img src="../assets/images/burrito-img.png" alt="">
+                <h3>Burrito</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/foods" class="box">
+                <img src="../assets/images/nachos-img.png" alt="">
+                <h3>Nachos</h3>
+            </router-link>
+
+            <router-link @click="scrollToTop()" to="/foods" class="box">
                 <img src="../assets/images/salad-img.png" alt="">
                 <h3>Sides</h3>
             </router-link>
@@ -138,6 +148,12 @@
 
 /* home category */
 
+.home-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
+    padding: 3rem;
+}
 
 
 .home-category .box {
