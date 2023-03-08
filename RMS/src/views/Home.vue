@@ -135,7 +135,6 @@
     padding: 2rem 5% !important;
 }
 
-
 /* home category */
 
 
