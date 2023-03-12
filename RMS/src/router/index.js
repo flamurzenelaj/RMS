@@ -19,6 +19,7 @@ import EditDrink from "../views/drink/EditDrink.vue";
 import About from "../components/About.vue";
 import Message from "../views/Message.vue";
 import Profile from "../views/Profile.vue";
+import Promo from "../views/Promo.vue";
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -50,6 +51,16 @@ const routes = [
       title: "About ",
     },
   },
+
+  {
+    path: "/promotions",
+    name: "Promotions",
+    component: Promo,
+    meta: {
+      title: "Promotions",
+    },
+  },
+
   {
     path: "/login",
     name: "Login",
