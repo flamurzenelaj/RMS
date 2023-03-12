@@ -1,187 +1,218 @@
-
 <template>
-  <footer>
-    <div class="container">
-      <div class="left">
-        <div class="col-1">
-          <router-link class="header" :to="{ name: 'Home' }">RMS</router-link>
-          <ul>
-            <li>
-              <a href=""><youTube class="svg-icon" /></a>
-            </li>
-            <li>
-              <a href="#"><twitter class="svg-icon" /></a>
-            </li>
-            <li>
-              <a href="#"><instagram class="svg-icon" /></a>
-            </li>
-            <li>
-              <a href="#"><linkedin class="svg-icon" /></a>
-            </li>
-          </ul>
+    <div class="footer">
+        <div class="news-letter">
+            <h3>Receive event notifications</h3>
+            <form onsubmit="event.preventDefault();">
+                <input type="email" name="useremailreceiveinfo" placeholder="enter your email"
+                    id="useremailreceiveinfo">
+                <input type="submit" value="subscribe">
+            </form>
         </div>
-        <div class="col-2">
-          <ul>
-            <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-            <router-link class="link" :to="{ name: 'News' }">News</router-link>
-            <router-link v-if="admin" class="link" :to="{ name: 'AddNews' }"
-              >Add News</router-link
-            >
-            <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
-              >Login In / Register</router-link
-            >
-            <router-link v-if="user" class="link" :to="{ name: 'Message' }"
-              >Message</router-link
-            >
-          </ul>
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our menu</h3>
+                <router-link @click="scrollToTop()" to="/foods"><i class="fas fa-arrow-right"></i> taco</router-link>
+                <router-link @click="scrollToTop()" to="/foods"><i class="fas fa-arrow-right"></i> burrito</router-link>
+                <router-link @click="scrollToTop()" to="/foods"><i class="fas fa-arrow-right"></i> nachos</router-link>
+                <router-link @click="scrollToTop()" to="/foods"><i class="fas fa-arrow-right"></i> side food
+                </router-link>
+                <router-link @click="scrollToTop()" to="/foods"><i class="fas fa-arrow-right"></i> dessert</router-link>
+                <router-link @click="scrollToTop()" to="/drinks"><i class="fas fa-arrow-right"></i> drink</router-link>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <router-link @click="scrollToTop()" to="/"> <i class="fas fa-arrow-right"></i> home</router-link>
+                <router-link @click="scrollToTop()" to="/about"> <i class="fas fa-arrow-right"></i> about</router-link>
+                <router-link @click="scrollToTop()" to="/promotions"> <i class="fas fa-arrow-right"></i> promotions
+                </router-link>
+                <router-link @click="scrollToTop()" to="/foods"> <i class="fas fa-arrow-right"></i> menu</router-link>
+                <router-link @click="scrollToTop()" to="/home"> <i class="fas fa-arrow-right"></i> book a table
+                </router-link>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <div v-if="user">
+                    <router-link @click="scrollToTop()" to="/home"> <i class="fas fa-arrow-right"></i> my order
+                    </router-link>
+                    <router-link @click="scrollToTop()" to="/home"> <i class="fas fa-arrow-right"></i> my orders
+                    </router-link>
+                </div>
+                <div v-else>
+                    <router-link @click="scrollToTop()" to="/login"> <i class="fas fa-arrow-right"></i> login
+                    </router-link>
+                    <router-link @click="scrollToTop()" to="/register"> <i class="fas fa-arrow-right"></i> register
+                    </router-link>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>opening hours</h3>
+                <p>everyday : 7:00am to 10:00pm</p>
+
+            </div>
+
         </div>
-      </div>
-      <div class="right">
-        <p>Copyright 2022 All Rights Reserved</p>
-      </div>
+
+        <div class="bottom">
+
+            <div class="share">
+                <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+                <a href="https://twitter.com/?lang=en" class="fab fa-twitter"></a>
+                <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+                <a href="https://www.pinterest.com/" class="fab fa-pinterest"></a>
+            </div>
+
+        </div>
+
     </div>
-  </footer>
 </template>
 
 <script>
-import youTube from "../assets/Icons/youtube-brands.svg";
-import twitter from "../assets/Icons/twitter-brands.svg";
-import instagram from "../assets/Icons/instagram-brands.svg";
-import linkedin from "../assets/Icons/linkedin-brands.svg";
+import { mapState } from 'vuex'
 export default {
-  name: "footer-vue",
-  components: {
-    youTube,
-    twitter,
-    instagram,
-    linkedin,
-  },
-  computed: {
-    user() {
-      return this.$store.state.user;
+    name: 'FooterComponent',
+
+    computed: {
+        ...mapState(['user'])
     },
-    admin() {
-      return this.$store.state.profileAdmin;
-    },
-  },
-};
+
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+    }
+}
 </script>
 
-<style lang="scss" scoped>
-footer {
-  margin-top: auto;
-  padding: 100px 25px;
-  background-color: #303030;
-  .container {
+<style scoped>
+/* footer */
+.footer {
+    background: #f7f7f7;
+    padding: 0 9%;
+    text-transform: capitalize !important;
+}
+
+.footer .news-letter {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer .news-letter h3 {
+    font-size: 1.5rem;
+    color: #130f40;
+    padding-bottom: 1rem;
+}
+
+.footer .news-letter form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    max-width: 70rem;
+
     display: flex;
-    flex-direction: column;
-    gap: 32px;
-    @media (min-width: 800px) {
-      flex-direction: row;
-      gap: 0px;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.footer .news-letter form input[type="email"] {
+    height: 100%;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+    color: #130f40;
+    text-transform: none;
+}
+
+.footer .news-letter form input[type="submit"] {
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #27ae60;
+    cursor: pointer;
+}
+
+.footer .news-letter form input[type="submit"]:hover {
+    background: #130f40;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 1.2rem;
+    color: #130f40;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box p {
+    font-size: 1rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+    display: block;
+    font-size: 1rem;
+    color: #666;
+    padding: 1rem 0;
+    text-decoration: none ;
+
+}
+
+.footer .box-container .box a:hover {
+    color: #27ae60;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+
+.footer .box-container .box a i {
+    padding-right: .5rem;
+    color: #27ae60;
+}
+
+.footer .bottom {
+    padding-top: 1rem;
+    text-align: center;
+
+}
+
+.footer .bottom a{
+  text-decoration: none ;
+}
+
+.footer .bottom .share {
+    margin: 1.5rem 0;
+}
+
+.footer .bottom .share a {
+    height: 3.5rem;
+    width: 3.5rem;
+    line-height:3.5rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    margin: 0 .3rem;
+    color: #fff;
+    background: #27ae60;
+}
+
+.footer .bottom .share a:hover {
+    background: #130f40;
+}
+
+@media (max-width: 576px) {
+    .footer .box-container {
+
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
     }
 
-    > div {
-      display: flex;
-      flex: 1;
-    }
-
-    .left {
-      gap: 32px;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      @media (min-width: 800px) {
-        flex-direction: row;
-        align-items: initial;
-        gap: 0;
-      }
-
-      .header {
-        text-align: center;
-        font-size: 24px;
-        color: #fff;
-        margin-bottom: 16px;
-        text-decoration: none;
-        font-weight: 600;
-        @media (min-width: 800px) {
-          text-align: initial;
-        }
-      }
-      ul {
-        gap: 16px;
-        list-style: none;
-        display: flex;
-      }
-
-      .col-1,
-      .col-2 {
-        gap: 32px;
-        display: flex;
-        flex: 1;
-        @media (min-width: 800px) {
-          gap: 0;
-        }
-      }
-
-      .col-1 {
-        flex-direction: column;
-
-        h2 {
-          text-align: center;
-          @media (min-width: 800px) {
-            text-align: initial;
-          }
-        }
-        ul {
-          margin-top: auto;
-
-          li {
-            display: flex;
-            align-items: center;
-            .svg-icon {
-              width: 24px;
-              height: auto;
-              color: #fff;
-            }
-          }
-        }
-      }
-
-      .col-2 {
-        ul {
-          height: 100%;
-          justify-content: center;
-          flex-direction: row;
-          flex-wrap: wrap;
-          @media (min-width: 800px) {
-            flex-direction: column;
-          }
-          .link {
-            font-size: 16px;
-            font-weight: 500;
-            color: #fff;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-
-    .right {
-      gap: 32px;
-      color: #fff;
-      align-items: center;
-      flex-direction: column;
-      @media (min-width: 800px) {
-        align-items: flex-end;
-        gap: 0;
-      }
-    }
-
-    p {
-      margin-top: auto;
-    }
-  }
 }
 </style>
