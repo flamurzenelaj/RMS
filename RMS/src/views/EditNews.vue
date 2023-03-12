@@ -1,6 +1,11 @@
 <template>
   <div class="create-post">
+    <NewsCoverPreview v-show="this.$store.state.newsPhotoPreview" />
+    <Loading v-show="loading" />
     <div class="container">
+      <div :class="{ invisible: !error }" class="err-message">
+        <p><span>Error:</span>{{ this.errorMsg }}</p>
+      </div>
       <div class="news-info">
         <input type="text" placeholder="Enter News Title" v-model="newsTitle" />
         <div class="upload-file">
@@ -12,21 +17,17 @@
           <span>File Chosen: {{ this.$store.state.newsPhotoName }}</span>
         </div>
       </div>
-      <NewsCoverPreview v-show="this.$store.state.newsPhotoPreview" />
-      <Loading v-show="loading" />
       <div class="editor">
-        <vue-editor :editor-options="editorSettings" v-model="newsHTML" use-custom-image-handler @image-added="imageHandler" />
+        <vue-editor :editorOptions="editorSettings" v-model="newsHTML" useCustomImageHandler @image-added="imageHandler" />
       </div>
       <div class="news-actions">
         <button @click="updateNews">Save Changes</button>
         <router-link class="router-button" :to="{ name: 'NewsPreview' }">Preview Changes</router-link>
       </div>
-      <div :class="{ invisible: !error }" class="err-message">
-        <p><span>Error:</span>{{ errorMsg }}</p>
-      </div>
     </div>
   </div>
 </template>
+
 
 
 <script>
